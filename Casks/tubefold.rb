@@ -11,8 +11,7 @@ cask "tubefold" do
   # Updates are delivered in-app via Sparkle; `brew upgrade` is a no-op once
   # the app can update itself. Keeps the cask from fighting the EdDSA appcast.
   auto_updates true
-  # The app's deployment target is macOS 27. Bump the symbol here if the floor
-  # changes; `:tahoe` (26) is the lowest symbol Homebrew currently knows.
+  # Matches the app's deployment target (macOS 26, Tahoe). Bump if it changes.
   depends_on macos: :tahoe
 
   app "TubeFold.app"
