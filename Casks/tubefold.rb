@@ -1,6 +1,6 @@
 cask "tubefold" do
-  version "0.3"
-  sha256 "efef811c983355271e928d7e25af02324de9a8178022d97569b3443ce56df206"
+  version "0.4"
+  sha256 "c8aab8f8f7a73453ef2a3c99e544b014770e37f8eddafe5facce751329d93e15"
 
   url "https://github.com/TubeFold/App/releases/download/v#{version}/TubeFold.zip",
       verified: "github.com/TubeFold/App/"
