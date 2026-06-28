@@ -1,8 +1,8 @@
 # TubeFold Homebrew Tap
 
-Homebrew cask for [TubeFold](https://github.com/TubeFold) — a macOS app that turns
-YouTube videos into Markdown summaries using your existing `codex` / `claude` CLI
-subscription (no API key).
+Homebrew cask for [TubeFold](https://github.com/TubeFold) — a local-first, open-source
+macOS app that turns YouTube videos into structured Markdown notes using your existing
+Codex CLI or Claude Code subscription (no API key).
 
 ## Install
 

@@ -5,7 +5,7 @@ cask "tubefold" do
   url "https://github.com/TubeFold/App/releases/download/v#{version}/TubeFold.zip",
       verified: "github.com/TubeFold/App/"
   name "TubeFold"
-  desc "Markdown summaries of YouTube videos via your CLI model subscription"
+  desc "Turn YouTube videos into Markdown notes with your own Codex or Claude CLI"
   homepage "https://github.com/TubeFold"
 
   # Updates are delivered in-app via Sparkle; `brew upgrade` is a no-op once
