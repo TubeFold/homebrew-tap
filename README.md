@@ -15,12 +15,13 @@ That's shorthand for the `TubeFold/homebrew-tap` repository — Homebrew expands
 
 ## Update
 
-The app updates itself in place via [Sparkle](https://sparkle-project.org), so
-`brew upgrade` is normally a no-op (the cask is marked `auto_updates true`). To
-reinstall the latest cask manually:
+The app updates itself in place via [Sparkle](https://sparkle-project.org).
+The cask declares this with `auto_updates true`; it does not disable Homebrew
+updates. To explicitly upgrade it through Homebrew:
 
 ```bash
-brew reinstall --cask tubefold/tap/tubefold
+brew update
+brew upgrade --cask tubefold/tap/tubefold
 ```
 
 ## Uninstall
@@ -35,5 +36,18 @@ brew uninstall --zap --cask tubefold/tap/tubefold
 
 - The app is distributed as a notarized, stapled Developer ID build — not via the
   Mac App Store (it disables the sandbox and shells out to your local CLI tools).
-- `version`, `url`, and `sha256` in [`Casks/tubefold.rb`](Casks/tubefold.rb) are
-  bumped on each release (eventually by CI in the `TubeFold/App` repo).
+- `version` and `sha256` in [`Casks/tubefold.rb`](Casks/tubefold.rb) are
+  updated automatically by the release workflow in `TubeFold/App`; the download
+  URL uses that version. Downloads are verified against the SHA-256 checksum.
+- `brew livecheck --cask tubefold/tap/tubefold` checks the latest stable
+  GitHub release, including this auto-updating cask.
+
+## Validation
+
+CI runs Homebrew style checks and a strict online audit on macOS for cask changes
+and release bumps. To run them locally after checking out changes in the tap:
+
+```bash
+brew style --cask tubefold/tap/tubefold
+brew audit --cask --strict --online tubefold/tap/tubefold
+```

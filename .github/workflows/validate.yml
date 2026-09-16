@@ -1,0 +1,27 @@
+name: Validate cask
+
+on:
+  push:
+    paths: ["Casks/**", ".github/workflows/validate.yml"]
+  pull_request:
+    paths: ["Casks/**", ".github/workflows/validate.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: macos-26
+    timeout-minutes: 20
+    steps:
+      - name: Set up Homebrew and check out the tap
+        uses: Homebrew/actions/setup-homebrew@304fc86d2c26bcd269547dbcfcfb4c853e710779
+        with:
+          stable: true
+
+      - name: Check cask style
+        run: brew style --cask tubefold/tap/tubefold
+
+      - name: Audit cask and release artifact
+        run: brew audit --cask --strict --online tubefold/tap/tubefold
